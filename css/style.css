@@ -1,0 +1,799 @@
+/* Font Import */
+@font-face {
+    font-family: 'Gabriel Weiss Friends';
+    src: url('../assets/fonts/GabrielWeissFriendsFont.ttf') format('truetype');
+}
+
+/* Color Variables */
+:root {
+    --primary-color: #9468b9;  /* Purple navbar color */
+    --secondary-color: #8B4513; /* Brown accent */
+    --accent-color: #f5cf35;   /* Gold for logo and accents */
+    --text-color: #333;
+    --background-color: #FFF8F0;  /* Warm white background */
+    --footer-color: #2C5530;
+    --menu-hover: #4A7553;
+}
+
+/* Dark Theme Colors */
+[data-theme="dark"] {
+    --primary-color: #1A4023;
+    --secondary-color: #6B3410;
+    --text-color: #FFF;
+    --background-color: #1A1A1A;
+    --footer-color: #1A4023;
+    --menu-hover: #2C5530;
+}
+
+/* Global Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Base Styles */
+body {
+    font-family: 'Arial', sans-serif;
+    line-height: 1.6;
+    color: var(--text-color);
+    background-color: var(--background-color);
+}
+
+/* Top Navigation Bar */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    background-color: var(--primary-color);
+    color: white;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+/* Logo Section (Left side of navbar) */
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+/* Logo Image */
+.logo img {
+    height: 80px;
+    width: auto;
+}
+
+/* Logo Text */
+.logo h1 {
+    font-family: 'Gabriel Weiss Friends', sans-serif;
+    font-size: 3rem;
+    color: var(--accent-color);
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+    margin: 0;
+    white-space: nowrap;
+}
+
+/* Navigation Links (Center/Right of navbar) */
+.nav-links {
+    margin-left: auto;  /* Push nav links to the right */
+    margin-right: 2rem; /* Add some space between nav links and controls */
+    display: flex;
+    align-items: center;
+}
+
+.nav-links a {
+    color: white;
+    text-decoration: none;
+    font-family: 'Gabriel Weiss Friends', sans-serif;
+    font-size: 1.4rem;
+    margin: 0 1rem;  /* Reduced side margins slightly */
+    transition: color 0.3s;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+}
+
+.nav-links a:hover {
+    color: var(--accent-color);
+}
+
+.nav-links a.active {
+    color: var(--accent-color);
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.4);
+}
+
+/* Theme Toggle and Cart (Right side of navbar) */
+.nav-controls {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+/* Hero Section */
+.hero {
+    margin-top: 80px; /* Account for fixed navbar */
+    height: 90vh;
+    background-image: url('../assets/images/couch.png');
+    background-attachment: fixed;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+}
+
+.hero-content {
+    max-width: 800px;
+    padding: 2rem;
+}
+
+.hero-content h1 {
+    font-family: 'Gabriel Weiss Friends', sans-serif;
+    font-size: 4.5rem;
+    margin-bottom: 1.5rem;
+    color: var(--accent-color);
+    text-shadow: 2px 2px 12px rgba(0,0,0,0.2);
+}
+
+.hero-content p {
+    font-size: 1.5rem;
+    margin-bottom: 2rem;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.cta-button {
+    background-color: var(--accent-color);
+    color: var(--primary-color);
+    font-weight: bold;
+    font-family: 'Montserrat', sans-serif;
+    padding: 1.2rem 2.5rem;
+    border: 2px solid var(--accent-color);
+    display: inline-block;
+    text-decoration: none;
+    border-radius: 4px;
+    margin-top: 1rem;
+    transition: background-color 0.3s;
+}
+
+.cta-button:hover {
+    background-color: transparent;
+    color: var(--accent-color);
+}
+
+/* Features Section */
+.features {
+    background-color: var(--background-color);
+    padding: 6rem 2rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+}
+
+.feature-card {
+    text-align: center;
+    padding: 3rem 2rem;
+    background-color: white;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    border: 1px solid #eee;
+    border-radius: 30px;
+    transition: transform 0.3s;
+}
+
+.feature-card:hover {
+    transform: translateY(-5px);
+}
+
+.feature-card i {
+    color: var(--accent-color);
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+.feature-card h3 {
+    font-family: 'Gabriel Weiss Friends', sans-serif;
+    font-size: 2.2rem;
+    margin: 1.5rem 0;
+    color: var(--primary-color);
+}
+
+/* Footer */
+footer {
+    background-color: var(--footer-color);
+    color: var(--background-color);
+    padding: 1rem 1rem;
+}
+
+.footer-content {
+    position: relative;
+    overflow: hidden;
+    
+    width: 100%;
+}
+
+.footer-sections-container {
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-start;
+    width: 100%;
+    margin-top: auto;
+    padding: 20px;
+    position: absolute;
+    bottom: 20px;
+    text-shadow: 2px 2px 4px rgb(0, 0, 0);
+    left: 0;
+    right: 0;
+}
+
+.footer-section {
+    flex: 1;
+    text-align: center;
+    color: white;
+    font-size: 4rem;
+    text-shadow: 2px 4px 2px rgb(0, 0, 0);
+    padding: 0 20px;
+}
+
+.footer-section h4 {
+    color: var(--accent-color);
+    margin-bottom: 5px;
+    font-family: 'Gabriel Weiss Friends', sans-serif;
+    text-shadow: 4px 4px 4px rgb(0, 0, 0);
+    font-size: 2rem;
+}
+
+.footer-section p {
+    font-size: 1.2rem;
+    margin-bottom: 5px;
+}
+
+.social-links {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    margin-top: 10px;
+}
+
+.social-links a {
+    color: white;
+    font-size: 1.8rem;
+}
+
+.social-links a:hover {
+    color: var(--accent-color);
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+/* Footer section with Friends image */
+.enjoyed-best-with {
+    width: 100vw;  /* Full viewport width */
+    height: 382px;
+    background-size: cover !important;
+    background-position: center bottom !important;  /* Align to bottom to show more buildings */
+    margin-left: calc(-50vw + 50%);  /* Negative margin trick for full width */
+    margin-right: calc(-50vw + 50%);
+    margin-top: -2rem;
+    margin-bottom: 2rem;
+    position: relative;
+}
+
+.page-width {
+    max-width: 1400px;
+    margin: 0 auto;
+    height: 100%;
+    display: flex;
+    align-items: flex-start;  /* Align to top instead of center */
+    justify-content: center;
+    padding-top: 60px;  /* Move content up from buildings */
+}
+
+.enjoyed-best-with-wrap {
+    text-align: center;
+    position: relative;
+    z-index: 2;  /* Ensure text stays above background */
+}
+
+.enjoyed-best-with-wrap h2 {
+    font-family: 'Gabriel Weiss Friends', sans-serif;
+    color: var(--accent-color);
+    font-size: 3rem;
+    margin-bottom: 1rem;  /* Reduced margin to tighten up spacing */
+    text-shadow: 4px 4px 4px rgb(0, 0, 0);
+}
+
+.enjoyed-best-with-wrap img {
+    filter: drop-shadow(3px 3px 5px rgb(255, 255, 255));
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .nav-links {
+        display: none;
+    }
+    
+    .hero {
+        height: 60vh;
+    }
+    
+    .features {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Add new styles */
+.menu-preview {
+    padding: 6rem 2rem;
+    background-color: var(--primary-color);
+    color: white;
+    text-align: center;
+}
+
+.menu-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 3rem auto;
+}
+
+.menu-item {
+    background-color: rgba(255,255,255,0.1);
+    padding: 2rem;
+    border-radius: 8px;
+    transition: transform 0.3s;
+}
+
+.menu-item:hover {
+    transform: translateY(-10px);
+}
+
+/* Update other elements to use Gabriel Weiss font */
+.section-title {
+    font-family: 'Gabriel Weiss Friends', sans-serif;
+    font-size: 3rem;
+    margin-bottom: 2rem;
+}
+
+.menu-item h3 {
+    font-family: 'Gabriel Weiss Friends', sans-serif;
+}
+
+/* Theme Toggle Styles */
+#theme-toggle {
+    background: none;
+    border: none;
+    cursor: pointer;
+    position: relative;
+    width: 32px;
+    height: 45px;
+    padding: 0;
+    margin: 0 15px;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+}
+
+/* Lamp shade */
+#theme-toggle::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 24px;
+    height: 16px;
+    background-color: var(--accent-color);
+    border-radius: 24px 24px 0 0;
+    transition: all 0.3s ease;
+}
+
+/* Lamp stand */
+#theme-toggle::after {
+    content: '';
+    position: absolute;
+    top: 16px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 4px;
+    height: 14px;
+    background-color: var(--accent-color);
+    transition: all 0.3s ease;
+}
+
+/* Light bulb icon */
+#theme-toggle i {
+    font-size: 18px;
+    color: var(--accent-color);
+    position: relative;
+    top: -10px;
+    transition: all 0.3s ease;
+}
+
+/* Dark mode styles */
+[data-theme="dark"] #theme-toggle::before {
+    background-color: #fff;
+    box-shadow: 0 0 10px var(--accent-color),
+                0 0 20px var(--accent-color);
+}
+
+[data-theme="dark"] #theme-toggle::after {
+    background-color: #fff;
+    box-shadow: 0 0 5px var(--accent-color);
+}
+
+[data-theme="dark"] #theme-toggle i {
+    color: #fff;
+    text-shadow: 0 0 10px var(--accent-color),
+                 0 0 20px var(--accent-color);
+}
+
+/* Hover effects */
+#theme-toggle:hover::before,
+#theme-toggle:hover::after {
+    filter: brightness(1.2);
+}
+
+#theme-toggle:hover i {
+    transform: scale(1.1);
+}
+
+/* Dark mode heading glow effects */
+[data-theme="dark"] h1,
+[data-theme="dark"] h2,
+[data-theme="dark"] h3,
+[data-theme="dark"] h4 {
+    &:where(.logo h1, .hero-content h1, .feature-card h3, .menu-item h3, .section-title, .enjoyed-best-with-wrap h2) {
+        text-shadow: 0 0 10px var(--accent-color),
+                     0 0 20px var(--accent-color);
+        color: #fff;
+    }
+}
+
+/* Specific adjustments for certain headings */
+[data-theme="dark"] .logo h1 {
+    color: var(--accent-color);
+    text-shadow: 0 0 15px var(--accent-color),
+                 0 0 30px var(--accent-color);
+}
+
+[data-theme="dark"] .hero-content h1 {
+    color: var(--accent-color);
+    text-shadow: 0 0 20px var(--accent-color),
+                 0 0 40px var(--accent-color),
+                 2px 2px 12px rgba(0,0,0,0.4);
+}
+
+[data-theme="dark"] .feature-card h3 {
+    color: var(--accent-color);
+    text-shadow: 0 0 10px var(--accent-color);
+}
+
+[data-theme="dark"] .enjoyed-best-with-wrap h2 {
+    text-shadow: 0 0 15px var(--accent-color),
+                 0 0 30px var(--accent-color),
+                 4px 4px 4px rgba(0,0,0,0.6);
+}
+
+/* Dark mode door frame glow */
+[data-theme="dark"] .door {
+    border-color: var(--accent-color);
+    box-shadow: 0 0 15px var(--accent-color),
+                0 0 30px var(--accent-color);
+}
+
+[data-theme="dark"] .door-handle,
+[data-theme="dark"] .frame-decor {
+    background-color: var(--accent-color);
+    box-shadow: 0 0 10px var(--accent-color),
+                0 0 20px var(--accent-color);
+}
+
+/* Dark mode menu items glow */
+[data-theme="dark"] .menu-item h3 {
+    color: var(--accent-color);
+    text-shadow: 0 0 10px var(--accent-color),
+                 0 0 20px var(--accent-color);
+}
+
+[data-theme="dark"] .menu-item {
+    border: 1px solid var(--accent-color);
+    box-shadow: 0 0 10px rgba(245, 207, 53, 0.2);
+}
+
+[data-theme="dark"] .menu-item i {
+    color: var(--accent-color);
+    text-shadow: 0 0 10px var(--accent-color);
+}
+
+[data-theme="dark"] .door-text {
+    text-shadow: 0 0 15px var(--accent-color),
+                 0 0 30px var(--accent-color);
+}
+
+/* Dark mode card styles */
+[data-theme="dark"] .feature-card {
+    background-color: #2a2a2a;  /* Dark gray background */
+    border-color: #3a3a3a;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+}
+
+[data-theme="dark"] .feature-card p {
+    color: #ddd;  /* Lighter text for better readability */
+}
+
+[data-theme="dark"] .menu-preview {
+    background-color: #1f1f1f;  /* Darker background for menu section */
+}
+
+[data-theme="dark"] .menu-item {
+    background-color: #2a2a2a;
+    border-color: var(--accent-color);
+}
+
+[data-theme="dark"] .menu-item p {
+    color: #ddd;
+}
+
+[data-theme="dark"] .menu-item .price {
+    color: var(--accent-color);
+}
+
+/* Update the door glow effect in dark mode */
+[data-theme="dark"] .menu-door {
+    box-shadow: 0 0 15px rgba(129, 199, 132, 0.3);  /* Reduced glow intensity */
+}
+
+[data-theme="dark"] .menu-door:hover {
+    box-shadow: 0 0 20px rgba(129, 199, 132, 0.4);  /* Slightly increased on hover but still subtle */
+}
+
+/* Door and peephole styles */
+.menu-door {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background-color: var(--primary-color);
+    transform-origin: left;
+    transition: transform 0.5s ease-in-out, box-shadow 0.3s ease;
+    cursor: pointer;
+    box-shadow: 0 0 20px rgba(0, 105, 140, 0.5);
+    transform-style: preserve-3d;
+}
+
+.peephole-frame {
+    margin: 20px; /* Add margin around the door frame */
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 60px;
+    height: 40px;
+    background-color: var(--primary-color);
+    border-radius: 5px;
+    transform-style: preserve-3d;
+    backface-visibility: hidden;
+    /* Remove transform-origin and transition for frame */
+}
+
+.peephole {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 20px;
+    height: 20px;
+    background-color: #000;
+    border-radius: 50%;
+    border: 2px solid var(--accent-color);
+    transform-style: preserve-3d;
+    backface-visibility: hidden;
+    /* Remove transform-origin and transition for peephole */
+}
+
+/* Door opening animation */
+.menu-door.open {
+    transform: perspective(1000px) rotateY(-85deg);
+}
+
+/* Remove separate animations for peephole elements */
+.menu-door.open .peephole-frame,
+.menu-door.open .peephole {
+    /* Keep their original positions relative to the door */
+    transform: translate(-50%, -50%);
+}
+
+/* Dark mode adjustments */
+[data-theme="dark"] .menu-door {
+    box-shadow: 0 0 15px rgba(129, 199, 132, 0.3);
+}
+
+[data-theme="dark"] .menu-door:hover {
+    box-shadow: 0 0 20px rgba(129, 199, 132, 0.4);
+}
+
+/* Update cart icon styles */
+.cart {
+    position: relative;
+    cursor: pointer;
+}
+
+.cart-link {
+    text-decoration: none;
+    color: inherit;
+    display: flex;
+    align-items: center;
+    padding: 5px;
+}
+
+.cart-link:hover {
+    color: var(--accent-color);
+}
+
+.cart-count {
+    position: absolute;
+    top: -8px;
+    right: -8px;
+    background-color: var(--accent-color);
+    color: white;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+}
+
+/* Dark mode adjustments */
+[data-theme="dark"] .cart-link:hover {
+    color: var(--accent-color);
+}
+
+/* Add to cart button feedback */
+.add-to-cart.added {
+    background-color: var(--accent-color);
+    color: white;
+}
+
+/* Cart responsiveness fixes */
+@media (max-width: 768px) {
+    .cart-container {
+        padding: 100px 1rem 1rem;
+    }
+
+    .cart-content {
+        flex-direction: column;
+    }
+
+    .cart-summary {
+        width: 100%;
+    }
+
+    .cart-item {
+        flex-wrap: wrap;
+        gap: 1rem;
+    }
+
+    .item-details {
+        width: calc(100% - 100px);
+    }
+
+    .item-quantity {
+        width: 100%;
+        justify-content: flex-end;
+        padding-right: 1rem;
+    }
+}
+
+/* Add couch quiz styling */
+.door-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    padding: 2rem;
+}
+
+.friends-images-left,
+.friends-images-right {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* Common image container styles */
+.image-container {
+    position: relative;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.image-container:hover {
+    transform: scale(1.05);
+}
+
+.friends-image {
+    width: 250px;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 15px;
+    box-shadow: 0 0 20px rgba(0,0,0,0.2);
+}
+
+.image-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(0, 105, 140, 0.8);
+    color: white;
+    padding: 15px;
+    text-align: center;
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+    font-family: 'Gabriel Weiss Friends', sans-serif;
+    font-size: 1.5rem;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.image-container:hover .image-overlay {
+    opacity: 1;
+}
+
+/* Dark mode adjustments */
+[data-theme="dark"] .friends-image {
+    box-shadow: 0 0 20px rgba(255,255,255,0.1);
+}
+
+[data-theme="dark"] .image-overlay {
+    background: rgba(255, 158, 27, 0.8);
+}
+
+/* Responsive adjustments */
+@media (max-width: 1400px) {
+    .door-section {
+        gap: 20px;
+    }
+
+    .friends-image {
+        width: 200px;
+        height: 150px;
+    }
+
+    .image-overlay {
+        font-size: 1.2rem;
+        padding: 10px;
+    }
+}
+
+@media (max-width: 1100px) {
+    .door-section {
+        flex-direction: column;
+        gap: 30px;
+    }
+
+    .friends-images-left,
+    .friends-images-right {
+        flex-direction: row;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+}
+
+@media (max-width: 480px) {
+    .friends-image {
+        width: 100%;
+        height: auto;
+    }
+}
+
+.fountain-container a {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+} 

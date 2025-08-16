@@ -1,0 +1,365 @@
+/* Font Import */
+@font-face {
+    font-family: 'Gabriel Weiss Friends';
+    src: url('../assets/fonts/GabrielWeissFriendsFont.ttf') format('truetype');
+}
+
+/* Interactive Door Animation Section */
+.door-section {
+    /* Full-screen door container */
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #F5E6D3;
+    perspective: 1000px;
+}
+
+.door-frame {
+    /* Door frame container */
+    width: 400px;
+    height: 600px;
+    position: relative;
+    transform-style: preserve-3d;
+    cursor: pointer;
+}
+
+.door {
+    /* Purple door matching navbar */
+    width: 100%;
+    height: 100%;
+    background-color: var(--primary-color); /* Changed from #A020F0 to match navbar purple */
+    position: relative;
+    transform-origin: left;
+    transition: transform 1.5s ease-in-out;
+    border: 20px solid var(--accent-color); /* Changed from #D4AF37 to match gold accent */
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.door.open {
+    transform: rotateY(-105deg);
+}
+
+.door-text {
+    font-family: 'Gabriel Weiss Friends', sans-serif;
+    color: var(--accent-color); /* Changed to match gold accent */
+    font-size: 3rem;
+    text-align: center;
+}
+
+.frame-decor {
+    position: absolute;
+    top: 50%;
+    right: 20px;
+    width: 50px;
+    height: 80px;
+    background-color: var(--accent-color); /* Changed from #D4AF37 to match gold accent */
+    border-radius: 5px;
+}
+
+.door-handle {
+    position: absolute;
+    right: 40px;
+    top: 50%;
+    width: 20px;
+    height: 60px;
+    background-color: var(--accent-color); /* Changed from #D4AF37 to match gold accent */
+    border-radius: 10px;
+    transform: translateY(-50%);
+}
+
+/* Menu Page Layout */
+.menu-page {
+    background-color: var(--background-color);  /* Using theme variable instead of beige */
+    min-height: 100vh;
+}
+
+.menu-container {
+    padding: 120px 5% 50px;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.menu-title {
+    font-family: 'Gabriel Weiss Friends', sans-serif;
+    text-align: center;
+    font-size: 4rem;
+    color: #b9672c;
+    margin-bottom: 3rem;
+    text-shadow: 2px 2px 4px rgb(0, 0, 0);
+}
+
+/* Menu Grid Layout */
+.menu-items-grid {
+    /* Grid for menu items */
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2.5rem;
+    padding: 2rem;
+}
+
+/* Individual Menu Item Cards */
+.menu-item {
+    background-color: #FFF;
+    border-radius: 15px;
+    padding: 2rem;
+    text-align: center;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(148, 104, 185, 0.1);  /* Purple shadow to match theme */
+    border: 1px solid rgba(148, 104, 185, 0.1);
+}
+
+.menu-item:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 25px rgba(148, 104, 185, 0.2);
+}
+
+.menu-item img {
+    /* Menu item images */
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 10px;
+    margin-bottom: 1.5rem;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.menu-item h3 {
+    color: var(--primary-color);  /* Purple instead of brown */
+    font-size: 2rem;
+    color: #b9672c;
+    margin: 1rem 0;
+    line-height: 1.2;
+}
+
+.menu-item p {
+    /* Menu item descriptions */
+    color: #666;
+    margin-bottom: 1rem;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.95rem;
+}
+
+.menu-item .price {
+    color: var(--primary-color);  /* Purple instead of brown */
+    font-weight: bold;
+}
+
+/* Add to Cart Button */
+.add-to-cart {
+    background-color: var(--primary-color);  /* Purple instead of brown */
+    color: #FFF;
+    border: none;
+    padding: 0.8rem 1.5rem;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.add-to-cart:hover {
+    background-color: var(--menu-hover);  /* Using theme hover color */
+    transform: translateY(-2px);
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+    /* Tablet layout adjustments */
+    .menu-items-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    /* Mobile layout adjustments */
+    .menu-items-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .menu-title {
+        font-size: 3rem;
+    }
+}
+
+/* Logo Styles (matching home page) */
+.logo {
+    /* Logo container */
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;  /* Increased gap between logo and title */
+}
+
+.logo img {
+    /* Logo image size */
+    height: 80px;  /* Increased from 70px */
+    width: auto;
+}
+
+.logo h1 {
+    /* Logo text style */
+    font-family: 'Gabriel Weiss Friends', sans-serif;
+    font-size: 3rem;  /* Increased from 2.8rem */
+    color: var(--accent-color);
+    margin: 0;  /* Remove any default margins */
+}
+
+/* Update other elements to use Gabriel Weiss font */
+.hero-content h1,
+.section-title,
+.footer-section h4,
+.menu-item h3 {
+    font-family: 'Gabriel Weiss Friends', sans-serif;
+}
+
+.hero-content h1 {
+    font-size: 4.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.section-title {
+    font-size: 3rem;
+    margin-bottom: 2rem;
+}
+
+.footer-section h4 {
+    font-size: 2rem;
+}
+
+/* Update menu item titles */
+.menu-item h3 {
+    font-family: 'Gabriel Weiss Friends', sans-serif;
+    font-size: 2rem;  /* Increased size */
+    color: #c5763e;
+    text-shadow: 1px 2px 1px rgb(0, 0, 0);
+    margin: 1rem 0;
+    line-height: 1.2;
+}
+
+/* Door frame decorative elements */
+.door-frame {
+    position: relative;
+}
+
+/* Golden frame around the door */
+.door-frame::before {
+    content: '';
+    position: absolute;
+    top: -15px;
+    left: -15px;
+    right: -15px;
+    bottom: -15px;
+    border: 8px solid var(--accent-color);
+    border-radius: 15px;
+    z-index: -1;
+}
+
+/* Peephole frame decoration */
+.peephole-frame {
+    position: absolute;
+    top: 100px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 75px;
+    height: 105px;
+    border: 4px solid var(--accent-color);
+    border-radius: 0;
+    z-index: 3;
+    box-shadow: 0 0 10px rgba(0,0,0,0.2);
+}
+
+/* Inner peephole detail */
+.peephole-frame::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 22px;
+    height: 22px;
+    background-color: var(--accent-color);
+    border-radius: 50%;  /* Changed from 0 to make it circular */
+    box-shadow: inset 0 0 5px rgba(0,0,0,0.3);
+}
+
+/* Dark mode enhancement */
+[data-theme="dark"] .peephole-frame::after {
+    box-shadow: 0 0 10px var(--accent-color),
+                inset 0 0 5px rgba(0,0,0,0.3);
+}
+
+/* Dark mode enhancements */
+[data-theme="dark"] .door-frame::before,
+[data-theme="dark"] .peephole-frame {
+    box-shadow: 0 0 15px var(--accent-color),
+                0 0 30px var(--accent-color);
+}
+
+/* Floating Hugsy Chat Button */
+.hugsy-chat-button {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 80px;
+    height: 80px;
+    cursor: pointer;
+    z-index: 1000;
+    animation: hugsyBounce 1s infinite alternate ease-in-out;
+    transition: transform 0.3s ease;
+}
+
+.hugsy-icon {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    border: 3px solid var(--accent-color);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    transition: all 0.3s ease;
+}
+
+/* Bouncing animation */
+@keyframes hugsyBounce {
+    from {
+        transform: translateY(0);
+    }
+    to {
+        transform: translateY(-15px);
+    }
+}
+
+/* Tooltip */
+.hugsy-tooltip {
+    position: absolute;
+    top: -40px;
+    right: 0;
+    background-color: var(--primary-color);
+    color: white;
+    padding: 8px 15px;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    opacity: 0;
+    transform: translateY(10px);
+    transition: all 0.3s ease;
+    white-space: nowrap;
+}
+
+/* Hover effects */
+.hugsy-chat-button:hover .hugsy-tooltip {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.hugsy-chat-button:hover .hugsy-icon {
+    transform: scale(1.1);
+    box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+}
+
+/* Dark mode adjustments */
+[data-theme="dark"] .hugsy-icon {
+    box-shadow: 0 4px 15px rgba(255,255,255,0.1);
+}
+
+[data-theme="dark"] .hugsy-tooltip {
+    background-color: var(--accent-color);
+} 

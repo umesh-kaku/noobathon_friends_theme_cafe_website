@@ -1,0 +1,244 @@
+/* Basic page layout */
+body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    padding-top: 100px; /* Space for fixed navbar */
+}
+
+/* Chat container layout */
+.chat-container {
+    padding-top: 40px;
+    padding-bottom: 20px;
+    flex: 1;
+    max-width: 1000px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+/* Main chat window styling */
+.chat-window {
+    width: 100%;
+    max-width: 800px;
+    margin: 0 20px;
+    display: flex;
+    flex-direction: column;
+    height: calc(100vh - 160px); /* Responsive height calculation */
+    background-color: white;
+    border-radius: 20px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    overflow: hidden;
+    position: relative;
+}
+
+/* Barista profile section */
+.barista-profile {
+    background-color: var(--primary-color);
+    padding: 12px;
+    text-align: center;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Barista avatar styling */
+.barista-avatar {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    border: 3px solid var(--accent-color);
+    margin-bottom: 5px;
+    cursor: pointer;
+    transition: transform 0.3s ease, background-image 0.3s ease;
+    background-size: cover;
+    background-position: center;
+    background-image: url('../assets/images/turkey_chatbot.jpg');
+}
+
+/* Dark mode avatar switch */
+[data-theme="dark"] .barista-avatar {
+    background-image: url('../assets/images/turkey.jpg');
+}
+
+/* Avatar hover effect */
+.barista-avatar:hover {
+    transform: scale(1.1);
+}
+
+/* Profile text styling */
+.barista-profile h2 {
+    margin: 5px 0;
+    font-size: 1.5rem;
+    font-family: 'Gabriel Weiss Friends', sans-serif;
+    color: var(--accent-color);
+}
+
+.barista-profile p {
+    margin: 0;
+    font-size: 0.9rem;
+}
+
+/* Chat messages container */
+.chat-messages {
+    flex: 1;
+    height: auto;
+    min-height: 300px;
+    overflow-y: auto;
+    padding: 15px;
+}
+
+/* Message animation and styling */
+.message {
+    margin-bottom: 20px;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: messageAppear 0.3s forwards;
+}
+
+/* Message appearance animation */
+@keyframes messageAppear {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Message alignment */
+.message.user {
+    text-align: right;
+}
+
+/* Message bubble styling */
+.message-content {
+    display: inline-block;
+    padding: 10px 15px;
+    border-radius: 15px;
+    max-width: 70%;
+}
+
+/* User message styling */
+.user .message-content {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+/* Barista message styling */
+.barista .message-content {
+    background-color: #F0F0F0;
+    color: var(--text-color);
+}
+
+/* Chat input area */
+.chat-input {
+    padding: 12px 15px;
+    display: flex;
+    gap: 8px;
+    border-top: 1px solid #eee;
+    background-color: #fff;
+}
+
+/* Input field styling */
+#userInput {
+    flex: 1;
+    padding: 10px 15px;
+    border: 2px solid var(--primary-color);
+    border-radius: 25px;
+    font-size: 1rem;
+}
+
+/* Send button styling */
+#sendMessage {
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+#sendMessage:hover {
+    transform: scale(1.1);
+}
+
+/* Quick questions section */
+.quick-questions {
+    padding: 10px 15px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 6px;
+    border-top: 1px solid #eee;
+}
+
+/* Quick button styling */
+.quick-btn {
+    padding: 8px 12px;
+    font-size: 0.9rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    background-color: #F0F0F0;
+    border: none;
+    border-radius: 15px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.quick-btn:hover {
+    background-color: var(--primary-color);
+    color: white;
+    transform: translateY(-2px);
+}
+
+/* Dark mode styles */
+[data-theme="dark"] .chat-window {
+    background-color: #2a2a2a;
+}
+
+[data-theme="dark"] .barista .message-content {
+    background-color: #3a3a3a;
+    color: white;
+}
+
+[data-theme="dark"] .quick-btn {
+    background-color: #3a3a3a;
+    color: white;
+}
+
+[data-theme="dark"] .quick-questions,
+[data-theme="dark"] .chat-input {
+    border-top-color: #444;
+}
+
+[data-theme="dark"] .chat-input {
+    background-color: #2a2a2a;
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+    body {
+        padding-top: 80px;
+    }
+
+    .chat-container {
+        padding-top: 30px;
+    }
+
+    .chat-window {
+        margin: 0 10px;
+        height: calc(100vh - 140px);
+    }
+
+    .quick-questions {
+        grid-template-columns: 1fr;
+    }
+
+    .barista-avatar {
+        width: 100px;
+        height: 100px;
+    }
+} 

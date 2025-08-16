@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Friends Quiz - Central Perk</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/quiz.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="logo">
+                <img src="../assets/images/central-perk-logo.png" alt="Central Perk Logo">
+                <h1>Central Perk</h1>
+            </div>
+            <div class="nav-links">
+                <a href="../index.html">Home</a>
+                <a href="menu.html">Menu</a>
+                <a href="seating.html">Seating</a>
+                <a href="reviews.html">Reviews</a>
+                <a href="quiz.html" class="active">Friends Quiz</a>
+            </div>
+            <div class="nav-controls">
+                <button id="theme-toggle">
+                    <i class="fas fa-moon"></i>
+                </button>
+                <div class="cart">
+                    <a href="cart.html" class="cart-link">
+                        <i class="fas fa-shopping-cart"></i>
+                        <span class="cart-count">0</span>
+                    </a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main class="quiz-main">
+        <!-- Quiz content from the provided code -->
+        <div class="overlay" id="overlay"></div>
+        <div class="popup" id="resultPopup">
+            <h2>Time's Up!</h2>
+            <div class="score" id="finalScore"></div>
+            <div class="feedback" id="finalFeedback"></div>
+            <button class="quiz-btn start-btn" onclick="restartQuiz()">Try Again</button>
+        </div>
+
+        <div class="quiz-container">
+            <div class="quiz-intro" id="quizIntro">
+                <h2>How well do you know Friends?</h2>
+                <p>Each question has 7 seconds to answer!</p>
+                <button class="quiz-btn start-btn" onclick="startQuiz()">Start Quiz</button>
+            </div>
+
+            <div id="questionContainer" class="question-container">
+                <div class="question-counter" id="questionCounter">Question 1/7</div>
+                <div class="countdown" id="countdown">7</div>
+                <div class="question" id="question"></div>
+                <div class="options" id="options"></div>
+            </div>
+        </div>
+    </main>
+
+    <script src="../js/main.js"></script>
+    <script src="../js/quiz.js"></script>
+</body>
+</html> 

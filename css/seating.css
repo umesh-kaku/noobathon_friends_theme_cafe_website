@@ -1,0 +1,155 @@
+/* Seating styles */
+.section-title {
+    text-align: center;
+    margin: 120px 0 40px;
+    font-family: 'Gabriel Weiss Friends', sans-serif;
+    color: var(--primary-color);
+    font-size: 3.5rem;
+}
+
+.seating-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 40px;
+    width: 80%;
+    margin: 0 auto 50px;
+    padding: 20px;
+}
+
+.category {
+    background-color: white;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease;
+}
+
+.category:hover {
+    transform: translateY(-5px);
+}
+
+.category h2 {
+    font-family: 'Gabriel Weiss Friends', sans-serif;
+    color: var(--primary-color);
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+}
+
+.seat-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+}
+
+.seat {
+    width: 50px;
+    height: 50px;
+    background-color: #F5F5F5;  /* Light off-white color for mug */
+    position: relative;
+    cursor: pointer;
+    overflow: hidden;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    clip-path: polygon(0% 0%, 100% 0%, 75% 100%, 25% 100%);
+    transition: all 0.3s ease;
+    border: 2px solid #E0E0E0;  /* Subtle border */
+}
+
+.seat:hover {
+    transform: scale(1.1);
+}
+
+.seat::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 0;
+    background-color: #6F4E37;  /* Coffee brown color */
+    transition: height 0.5s ease-in-out;
+    box-shadow: inset 0 -10px 10px rgba(0,0,0,0.2);
+}
+
+.seat.selected::after {
+    height: 75%;  /* Fill with coffee when selected */
+}
+
+/* Straw styles */
+.seat::before {
+    content: '';
+    position: absolute;
+    top: -20px;
+    right: 12px;
+    width: 5px;
+    height: 75px;
+    background-color: #87CEEB;  /* Sky Blue */
+    transform: rotate(15deg);
+    transform-origin: bottom;
+    z-index: 2;
+    border-radius: 2px;
+}
+
+/* Bent part of straw */
+.seat .straw-bend {
+    content: '';
+    position: absolute;
+    top: -20px;
+    right: 12px;
+    width: 20px;
+    height: 5px;
+    background-color: #87CEEB;  /* Sky Blue */
+    transform: translateX(3px) rotate(-15deg);
+    z-index: 2;
+    border-radius: 2px;
+}
+
+/* Keep straw static (no animations) */
+.seat:hover::before {
+    transform: rotate(15deg);  /* Keep static */
+}
+
+.seat:hover .straw-bend {
+    transform: translateX(3px) rotate(-15deg);  /* Keep static */
+}
+
+/* Dark mode styles */
+[data-theme="dark"] .category {
+    background-color: #2a2a2a;
+    border: 1px solid var(--accent-color);
+}
+
+[data-theme="dark"] .category h2 {
+    color: var(--accent-color);
+    text-shadow: 0 0 10px var(--accent-color);
+}
+
+[data-theme="dark"] .seat {
+    background-color: #E6E6FA;  /* Light lavender for mug */
+    border-color: #B0B0B0;
+    box-shadow: 0 0 10px rgba(255,255,255,0.1);
+}
+
+[data-theme="dark"] .seat:hover {
+    background-color: #F0F0FF;  /* Lighter lavender on hover */
+}
+
+/* Dark mode coffee effects */
+[data-theme="dark"] .seat.selected::after {
+    background-color: #6F4E37;  /* Coffee brown */
+    box-shadow: inset 0 -10px 10px rgba(0,0,0,0.3),
+                0 0 15px #6F4E37;  /* Inner shadow and glow */
+}
+
+/* Dark mode straw styles */
+[data-theme="dark"] .seat::before,
+[data-theme="dark"] .seat .straw-bend {
+    background-color: #ADD8E6;  /* Light Blue for dark mode */
+    box-shadow: 0 0 5px rgba(173, 216, 230, 0.5);  /* Light blue glow */
+}
+
+/* Keep straw height consistent */
+.seat.selected::before {
+    height: 75px;  /* Keep original height */
+} 

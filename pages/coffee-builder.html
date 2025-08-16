@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Central Perk - Custom Coffee Builder</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Montserrat:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #9468b9;
+            --secondary-color: #8B4513;
+            --accent-color: #f5cf35;
+            --text-color: #333;
+            --background-color: #FFF8F0;
+        }
+
+        [data-theme="dark"] {
+            --primary-color: #1A4023;
+            --secondary-color: #6B3410;
+            --text-color: #FFF;
+            --background-color: #1A1A1A;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            background-color: var(--background-color);
+            font-family: 'Montserrat', sans-serif;
+            color: var(--text-color);
+            overflow-x: hidden;
+        }
+
+        .main-content {
+            margin-top: 120px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            flex: 1;
+        }
+
+        .title {
+            font-family: 'Gabriel Weiss Friends', sans-serif;
+            font-size: 4rem;
+            color: var(--accent-color);
+            text-align: center;
+            margin-bottom: 2rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+        }
+
+        [data-theme="dark"] .title {
+            text-shadow: 0 0 15px var(--accent-color),
+                         0 0 30px var(--accent-color);
+        }
+
+        .container {
+            position: relative;
+            width: 100vw;
+            height: calc(100vh - 200px);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .coffee-builder-container {
+            position: relative;
+            width: 500px;
+            height: 500px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .glass {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%) rotate(180deg);
+            width: 200px;
+            height: 300px;
+            background: linear-gradient(
+                to right,
+                rgba(200, 230, 255, 0.3),
+                rgba(220, 240, 255, 0.4)
+            );
+            border: 2px solid var(--accent-color);
+            clip-path: polygon(20% 0%, 80% 0%, 100% 100%, 0% 100%);
+            border-radius: 5px;
+            overflow: hidden;
+            box-shadow: inset 0 0 20px rgba(200, 230, 255, 0.2);
+        }
+
+        [data-theme="dark"] .glass {
+            box-shadow: 0 0 15px var(--accent-color);
+        }
+
+        .coffee-fill {
+            position: absolute;
+            top: 0;
+            width: 100%;
+            height: 0%;
+            background-color: var(--secondary-color);
+            transition: height 0.5s ease;
+            transform: rotate(180deg);
+        }
+
+        .option-circle {
+            position: absolute;
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            border: 2px solid var(--accent-color);
+            background-color: var(--background-color);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            padding: 10px;
+            box-sizing: border-box;
+            font-size: 14px;
+            color: var(--text-color);
+            animation: float 3s ease-in-out infinite;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        .option-circle.selected {
+            background-color: var(--accent-color);
+            color: var(--background-color);
+            transform: scale(1.1);
+            box-shadow: 0 0 15px var(--accent-color);
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0px); }
+        }
+
+        .checkout-btn {
+            position: absolute;
+            bottom: 120px;
+            left: 50%;
+            transform: translateX(-50%);
+            padding: 15px 30px;
+            background-color: var(--accent-color);
+            color: var(--background-color);
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            z-index: 100;
+            font-family: 'Gabriel Weiss Friends', sans-serif;
+        }
+
+        .checkout-btn:hover {
+            transform: translateX(-50%) scale(1.1);
+            box-shadow: 0 0 15px var(--accent-color);
+        }
+
+        .message {
+            position: fixed;
+            top: 100px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: var(--accent-color);
+            color: var(--background-color);
+            padding: 15px 30px;
+            border-radius: 25px;
+            display: none;
+            z-index: 1000;
+            min-width: 200px;
+            text-align: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            font-family: 'Montserrat', sans-serif;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="logo">
+                <img src="../assets/images/central-perk-logo.png" alt="Central Perk Logo">
+                <h1>Central Perk</h1>
+            </div>
+            <div class="nav-links">
+                <a href="../index.html">Home</a>
+                <a href="menu.html">Menu</a>
+                <a href="seating.html">Seating</a>
+                <a href="reviews.html">Reviews</a>
+            </div>
+            <div class="nav-controls">
+                <button id="theme-toggle">
+                    <i class="fas fa-moon"></i>
+                </button>
+                <div class="cart">
+                    <a href="cart.html" class="cart-link">
+                        <i class="fas fa-shopping-cart"></i>
+                        <span class="cart-count">0</span>
+                    </a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <div class="main-content">
+        <h1 class="title">Custom Coffee Builder</h1>
+        <div class="container">
+            <div class="coffee-builder-container">
+                <div class="glass">
+                    <div class="coffee-fill" id="coffeeFill"></div>
+                </div>
+            </div>
+
+            <button class="checkout-btn" onclick="checkout()">Add to Cart</button>
+            <div class="message" id="message"></div>
+        </div>
+    </div>
+
+    <script src="../js/main.js"></script>
+    <script>
+        const options = [
+            "Espresso Shot",
+            "Steamed Milk",
+            "Caramel Syrup",
+            "Whipped Cream",
+            "Chocolate Syrup",
+            "Vanilla Extract",
+            "Cinnamon",
+            "Hazelnut Syrup"
+        ];
+
+        let selectedOptions = [];
+        const MAX_SELECTIONS = 6;
+
+        function createOptionCircles() {
+            options.forEach((option, index) => {
+                const circle = document.createElement('div');
+                circle.className = 'option-circle';
+                circle.textContent = option;
+                
+                const angle = (index / options.length) * 2 * Math.PI;
+                const radius = 200;
+                
+                const x = Math.cos(angle) * radius + 250;
+                const y = Math.sin(angle) * radius + 250;
+                
+                circle.style.left = `${x - 50}px`;
+                circle.style.top = `${y - 50}px`;
+                circle.style.animationDelay = `${index * 0.2}s`;
+
+                circle.addEventListener('click', () => toggleOption(circle, option));
+                document.querySelector('.coffee-builder-container').appendChild(circle);
+            });
+        }
+
+        function toggleOption(circle, option) {
+            const index = selectedOptions.indexOf(option);
+            if (index === -1) {
+                if (selectedOptions.length >= MAX_SELECTIONS) {
+                    showMessage("Maximum 6 options allowed!");
+                    return;
+                }
+                selectedOptions.push(option);
+                circle.classList.add('selected');
+            } else {
+                selectedOptions.splice(index, 1);
+                circle.classList.remove('selected');
+            }
+            updateCoffeeFill();
+        }
+
+        function updateCoffeeFill() {
+            const fillPercentage = (selectedOptions.length / MAX_SELECTIONS) * 72;
+            document.getElementById('coffeeFill').style.height = `${fillPercentage}%`;
+        }
+
+        function showMessage(text) {
+            const message = document.getElementById('message');
+            message.textContent = text;
+            message.style.display = 'block';
+            setTimeout(() => {
+                message.style.display = 'none';
+            }, 3000);
+        }
+
+        function updateCart(items) {
+            let cart = JSON.parse(localStorage.getItem('cart') || '[]');
+            
+            const coffeeItem = {
+                name: "Custom Coffee",
+                options: items,
+                price: items.length * 10,
+                quantity: 1,
+                image: "assets/images/cc.jpg"
+            };
+            
+            cart.push(coffeeItem);
+            
+            localStorage.setItem('cart', JSON.stringify(cart));
+            
+            const cartCount = document.querySelector('.cart-count');
+            cartCount.textContent = cart.length;
+        }
+
+        function checkout() {
+            if (selectedOptions.length === 0) {
+                showMessage("Please select at least one option!");
+                return;
+            }
+            
+            const totalPrice = selectedOptions.length * 10;
+            const selections = selectedOptions.join(", ");
+            showMessage(`Added to cart: Custom coffee with ${selections} for $${totalPrice}`);
+            
+            updateCart(selectedOptions);
+            
+            setTimeout(() => {
+                selectedOptions = [];
+                document.querySelectorAll('.option-circle').forEach(circle => {
+                    circle.classList.remove('selected');
+                });
+                updateCoffeeFill();
+            }, 3000);
+        }
+
+        createOptionCircles();
+
+        window.addEventListener('load', () => {
+            const cart = JSON.parse(localStorage.getItem('cart') || '[]');
+            const cartCount = document.querySelector('.cart-count');
+            cartCount.textContent = cart.length;
+        });
+    </script>
+</body>
+</html> 

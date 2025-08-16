@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Virtual Barista - Central Perk</title>
+    <!-- Core stylesheets -->
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/chat.css">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <header>
+        <nav class="navbar">
+            <!-- Logo and site title -->
+            <div class="logo">
+                <img src="../assets/images/central-perk-logo.png" alt="Central Perk Logo">
+                <h1>Central Perk</h1>
+            </div>
+            <!-- Navigation links -->
+            <div class="nav-links">
+                <a href="../index.html">Home</a>
+                <a href="menu.html">Menu</a>
+                <a href="seating.html">Seating</a>
+                <a href="reviews.html">Reviews</a>
+                <!-- <a href="quiz.html">Friends Quiz</a> -->
+            </div>
+            <!-- Theme toggle and cart -->
+            <div class="nav-controls">
+                <button id="theme-toggle">
+                    <i class="fas fa-moon"></i>
+                </button>
+                <div class="cart">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span class="cart-count">0</span>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Main Chat Interface -->
+    <main class="chat-container">
+        <div class="chat-window">
+            <!-- Virtual Barista Profile Header -->
+            <div class="barista-profile">
+                <div class="barista-avatar"></div>
+                <h2>Joey (Your Virtual Barista)</h2>
+                <p>"How you doin'?"</p>
+            </div>
+            
+            <!-- Chat Messages Container -->
+            <div class="chat-messages" id="chatMessages">
+                <!-- Dynamic messages will appear here -->
+            </div>
+
+            <!-- Quick Question Buttons -->
+            <div class="quick-questions">
+                <button class="quick-btn">What's your best coffee?</button>
+                <button class="quick-btn">Tell me about the menu</button>
+                <button class="quick-btn">Any food recommendations?</button>
+                <button class="quick-btn">Tell me a Friends quote</button>
+            </div>
+            
+            <!-- Chat Input Area -->
+            <div class="chat-input">
+                <input type="text" id="userInput" placeholder="Ask me anything...">
+                <button id="sendMessage">
+                    <i class="fas fa-paper-plane"></i>
+                </button>
+            </div>
+        </div>
+    </main>
+
+    <!-- Scripts -->
+    <script src="../js/main.js"></script>
+    <script src="../js/chat.js"></script>
+</body>
+</html> 

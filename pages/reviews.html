@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reviews - Central Perk</title>
+    <!-- Core stylesheets -->
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/reviews.css">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <header>
+        <nav class="navbar">
+            <div class="logo">
+                <img src="../assets/images/central-perk-logo.png" alt="Central Perk Logo">
+                <h1>Central Perk</h1>
+            </div>
+            <div class="nav-links">
+                <a href="../index.html">Home</a>
+                <a href="menu.html">Menu</a>
+                <a href="seating.html">Seating</a>
+                <a href="reviews.html" class="active">Reviews</a>
+                <!-- <a href="quiz.html">Friends Quiz</a> -->
+            </div>
+            <div class="nav-controls">
+                <button id="theme-toggle">
+                    <i class="fas fa-moon"></i>
+                </button>
+                <div class="cart">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span class="cart-count">0</span>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main class="main-container">
+        <!-- Left side - Review Form -->
+        <div class="review-form-section">
+            <div class="review-container">
+                <form class="review-form" id="reviewForm">
+                    <div class="form-group">
+                        <label for="reviewText">Share your experience at Central Perk:</label>
+                        <textarea id="reviewText" placeholder="Tell us about your visit..."></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Rate your experience:</label>
+                        <div class="star-rating">
+                            <input type="radio" id="mug5" name="rating" value="5">
+                            <label for="mug5" class="fas"></label>
+                            <input type="radio" id="mug4" name="rating" value="4">
+                            <label for="mug4" class="fas"></label>
+                            <input type="radio" id="mug3" name="rating" value="3">
+                            <label for="mug3" class="fas"></label>
+                            <input type="radio" id="mug2" name="rating" value="2">
+                            <label for="mug2" class="fas"></label>
+                            <input type="radio" id="mug1" name="rating" value="1">
+                            <label for="mug1" class="fas"></label>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Add photos of your visit:</label>
+                        <div class="image-upload">
+                            <label for="imageUpload" class="upload-btn">
+                                <i class="fas fa-camera"></i> Click to upload photos
+                            </label>
+                            <input type="file" id="imageUpload" accept="image/*" multiple>
+                            <div class="upload-preview" id="imagePreview"></div>
+                        </div>
+                    </div>
+
+                    <button type="submit" class="submit-btn">Submit Review</button>
+                </form>
+            </div>
+        </div>
+
+        <!-- Right side - Previous Reviews -->
+        <div class="previous-reviews-section">
+            <h2>Customer Reviews</h2>
+            <div class="reviews-wrapper">
+                <!-- Existing reviews will be loaded here -->
+            </div>
+        </div>
+    </main>
+
+    <script src="../js/main.js"></script>
+    <script src="../js/reviews.js"></script>
+</body>
+</html> 

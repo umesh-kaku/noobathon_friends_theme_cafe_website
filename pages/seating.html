@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Seating - Central Perk Café</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/seating.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Montserrat:wght@400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="logo">
+                <img src="../assets/images/central-perk-logo.png" alt="Central Perk Logo">
+                <h1>Central Perk</h1>
+            </div>
+            <div class="nav-links">
+                <a href="../index.html">Home</a>
+                <a href="menu.html">Menu</a>
+                <a href="seating.html" class="active">Seating</a>
+                <!-- <a href="quiz.html">Friends Quiz</a> -->
+            </div>
+            <div class="nav-controls">
+                <button id="theme-toggle">
+                    <i class="fas fa-moon"></i>
+                </button>
+                <div class="cart">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span class="cart-count">0</span>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <h1 class="section-title">Choose Your Seat</h1>
+        <div class="seating-grid">
+            <div class="category">
+                <h2>Quiet Study</h2>
+                <div class="seat-container">
+                    <div class="seat" onclick="toggleSeat(this)">
+                        <div class="straw-bend"></div>
+                    </div>
+                    <div class="seat" onclick="toggleSeat(this)">
+                        <div class="straw-bend"></div>
+                    </div>
+                    <div class="seat" onclick="toggleSeat(this)">
+                        <div class="straw-bend"></div>
+                    </div>
+                    <div class="seat" onclick="toggleSeat(this)">
+                        <div class="straw-bend"></div>
+                    </div>
+                    <div class="seat" onclick="toggleSeat(this)">
+                        <div class="straw-bend"></div>
+                    </div>
+                    <div class="seat" onclick="toggleSeat(this)">
+                        <div class="straw-bend"></div>
+                    </div>
+                    <div class="seat" onclick="toggleSeat(this)">
+                        <div class="straw-bend"></div>
+                    </div>
+                    <div class="seat" onclick="toggleSeat(this)">
+                        <div class="straw-bend"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="category">
+                <h2>Window View</h2>
+                <div class="seat-container">
+                    <div class="seat" onclick="toggleSeat(this)">
+                        <div class="straw-bend"></div>
+                    </div>
+                    <div class="seat" onclick="toggleSeat(this)">
+                        <div class="straw-bend"></div>
+                    </div>
+                    <div class="seat" onclick="toggleSeat(this)">
+                        <div class="straw-bend"></div>
+                    </div>
+                    <div class="seat" onclick="toggleSeat(this)">
+                        <div class="straw-bend"></div>
+                    </div>
+                    <div class="seat" onclick="toggleSeat(this)">
+                        <div class="straw-bend"></div>
+                    </div>
+                    <div class="seat" onclick="toggleSeat(this)">
+                        <div class="straw-bend"></div>
+                    </div>
+                    <div class="seat" onclick="toggleSeat(this)">
+                        <div class="straw-bend"></div>
+                    </div>
+                    <div class="seat" onclick="toggleSeat(this)">
+                        <div class="straw-bend"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="category">
+                <h2>Power Outlet</h2>
+                <div class="seat-container">
+                    <div class="seat" onclick="toggleSeat(this)">
+                        <div class="straw-bend"></div>
+                    </div>
+                    <div class="seat" onclick="toggleSeat(this)">
+                        <div class="straw-bend"></div>
+                    </div>
+                    <div class="seat" onclick="toggleSeat(this)">
+                        <div class="straw-bend"></div>
+                    </div>
+                    <div class="seat" onclick="toggleSeat(this)">
+                        <div class="straw-bend"></div>
+                    </div>
+                    <div class="seat" onclick="toggleSeat(this)">
+                        <div class="straw-bend"></div>
+                    </div>
+                    <div class="seat" onclick="toggleSeat(this)">
+                        <div class="straw-bend"></div>
+                    </div>
+                    <div class="seat" onclick="toggleSeat(this)">
+                        <div class="straw-bend"></div>
+                    </div>
+                    <div class="seat" onclick="toggleSeat(this)">
+                        <div class="straw-bend"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="category">
+                <h2>Social Space</h2>
+                <div class="seat-container">
+                    <div class="seat" onclick="toggleSeat(this)">
+                        <div class="straw-bend"></div>
+                    </div>
+                    <div class="seat" onclick="toggleSeat(this)">
+                        <div class="straw-bend"></div>
+                    </div>
+                    <div class="seat" onclick="toggleSeat(this)">
+                        <div class="straw-bend"></div>
+                    </div>
+                    <div class="seat" onclick="toggleSeat(this)">
+                        <div class="straw-bend"></div>
+                    </div>
+                    <div class="seat" onclick="toggleSeat(this)">
+                        <div class="straw-bend"></div>
+                    </div>
+                    <div class="seat" onclick="toggleSeat(this)">
+                        <div class="straw-bend"></div>
+                    </div>
+                    <div class="seat" onclick="toggleSeat(this)">
+                        <div class="straw-bend"></div>
+                    </div>
+                    <div class="seat" onclick="toggleSeat(this)">
+                        <div class="straw-bend"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <section class="enjoyed-best-with" style="background: url(//centralperk.com/cdn/shop/t/1/assets/friends-img.png?v=41765139652358205961648882009);">
+                <div class="page-width">
+                    <div class="enjoyed-best-with-wrap">
+                        <h2>ENJOYED BEST WITH</h2>
+                        <img width="300px;" src="https://cdn.shopify.com/s/files/1/0565/9738/1173/files/logo_friends.png?v=1656384507" alt="Friends logo">
+                    </div>
+                </div>
+            </section>
+        </div>
+    </footer>
+
+    <script src="../js/main.js"></script>
+    <script>
+        function toggleSeat(seat) {
+            seat.classList.toggle("selected");
+        }
+    </script>
+</body>
+</html> 
